@@ -15,5 +15,6 @@ class rkhunter::service {
   exec { 'Update rkhunter database':
     command => "${rkhunter::params::rkhunter_bin} --propupdate && /bin/touch ${::rkhunter::params::config_rkhunter_sys_conf_upd}",
     onlyif  => "/usr/bin/test ! -e ${::rkhunter::params::config_rkhunter_sys_conf_upd}",
+    timeout => $rkhunter::upd_timeout,
   }
 }

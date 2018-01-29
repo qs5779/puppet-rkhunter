@@ -81,7 +81,8 @@ class rkhunter (
   $sshd_root            = $rkhunter::params::sshd_root,
   $web_cmd              = $rkhunter::params::web_cmd,
   $disable_tests        = $rkhunter::params::disable_tests,
-  $cron_daily_run       = $rkhunter::params::cron_daily_run
+  $cron_daily_run       = $rkhunter::params::cron_daily_run,
+  $upd_timeout          = 300,
 ) inherits rkhunter::params {
 
   # Start workflow
