@@ -54,6 +54,12 @@
         "8.0",
         "9.0"
       ]
+    },
+    {
+      "operatingsystem": "Archlinux",
+      "operatingsystemrelease": [
+        "4.19"
+      ]
     }
   ],
   "requirements": [
