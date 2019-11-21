@@ -16,13 +16,13 @@ before_install:
 branches:
   only:
     - master
-    - release
+    - verify
 
 stages:
   - name: build
-    if: branch = master
+    if: branch = verify
   - name: test
-    if: branch = master
+    if: branch = verify
   - name: deploy
     if: branch = release
 
