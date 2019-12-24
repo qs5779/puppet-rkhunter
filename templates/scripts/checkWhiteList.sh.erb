@@ -28,7 +28,10 @@ echo '
      awk -F"'" '/replaced by a script/ {print "SCRIPTWHITELIST="$2}' $LOG
 echo '
      Allow processes using deleted files ("deleted_files" test):'
-     awk '/Process: / {print "ALLOWPROCDELFILE="$3}' $LOG | sort -u
+     awk '/Process: .*File/ {print "ALLOWPROCDELFILE="$3}' $LOG | sort -u
+echo '
+     Allow processes using suspicious (large) shared memory segments ("ipc_shared_mem" test):'
+     awk '/Process: .*Owner: .* Size: / {print "ALLOWIPCPROCFILE="$3}' $LOG | sort -u
 echo '
      Allow Xinetd services:'
      awk '/Found enabled xinetd service/ {print $NF}' $LOG |
